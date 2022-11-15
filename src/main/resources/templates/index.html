@@ -1,0 +1,66 @@
+<html>
+
+<body class="bg-light h-100 d-flex flex-column">
+
+    <head th:replace="~{layouts :: head}"></head>
+    <div th:replace="~{layouts :: navbar}"></div>
+    <section class="container bg-light mb-3">
+        <h1>Lojas Associadas</h1>
+        <input type="search" class="input-group mb-0 mt-4" placeholder="Pesquisar Lojas">
+        <div>
+            <button type="button" class="btn"><a class="btn btn-lg" href="/formulario"><i
+                        class="fas fa-plus-circle"></i>Adicionar
+                    Lojista</a></button>
+        </div>
+            <div th:each="store : ${stories}" class="row row-cols-1 row-cols-md-3 row-cols-sm-2 g-4">
+                <div class="col">
+                    <div class="card" >
+                        <img th:src="${store.image}" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${store.nameStore}"></h5>
+                            <p class="card-text">vendas: 999 unidades</p>
+                            <p class="card-text">cursos: 15</p>
+                            <a th:href="@{formulario/{storeId}(storeId=${store.storeId})}" th:method="get" class="btn btn-warning">Editar</a>
+                            <a th:href="@{delete/{storeId}(storeId=${store.storeId})}" th:method="delete" class="btn btn-danger">Deletar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div th:replace="~{layouts :: footer}"></div>
+
+
+
+
+
+
+        <!-- <table class="table table-light">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Cnpj</th>
+                <th scope="col">Loja</th>
+            </tr>
+            <tr th:each="store : ${stories}">
+                <th scope="row"></th>
+                <td><span th:text="${store.storeId}"></span></td>
+                <td><span th:text="${store.cnpj}"></span></td>
+                <td><span th:text="${store.nameStore}"></span></td>
+                <td><span th:text="${store.adress}"></span></td>
+                <td><span th:text="${store.city}"></span></td>
+                <td><span th:text="${store.state}"></span></td>
+                <td><span th:text="${store.phone}"></span></td>
+                <td><span th:text="${store.cep}"></span></td>
+                <td><span th:text="${store.owner}"></span></td>
+                <td><span th:text="${store.celPhone}"></span></td>
+                <td><span th:text="${store.email}"></span></td>
+                <td><span th:text="${store.image}"></span></td>
+
+                <td class="buttons "><a th:href="@{formulario/{storeId}(storeId=${store.storeId})}" th:method="get"
+                        class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                    <a th:href="@{delete/{storeId}(storeId=${store.storeId})}" th:method="delete" class="btn btn-danger"><i
+                            class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        </table> -->
+</body>
+
+</html>

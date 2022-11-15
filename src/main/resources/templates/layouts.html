@@ -1,0 +1,210 @@
+<!-- Header - NavBar -->
+
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    </div>
+
+    <div th:fragment="navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img th:src="@{https://cdn.awsli.com.br/1778/1778990/logo/c82eed507b.png}"
+                        class="rounded float-start" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="color:black;"> </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"
+                                href="../lojas-associadas/index.html">Lojistas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Aprendizados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Dicas e produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Bonificações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Faq</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Botao Upload Imagem -->
+    <div th:fragment="botao-upload">
+        <button class="d-grid gap-1 col-1.5 mx-auto" onclick="abrirModal2()"><i class="btn btn-primary"></i><span>Enviar
+                imagem</span></button>
+    </div>
+
+    <!-- formulario -->
+    <!-- th:field serve para validação do formulario. Não seguirá se o campo nao for preenchido
+    O campo name é não precisa ser preenchido quando o thfield estiver preenchido para coleta dos dados no banco de dados -->
+    <div th:fragment="formulario">
+        <div class="form-group">
+            <label for="cnpj" class="form-label">Cnpj:</label>
+            <input th:field="*{cnpj}" type="text" class="form-control" th:errorclass="is-invalid"
+                placeholder="00.000.000/0000-00" maxlength="14" required>
+            <div class="invalid-feedback" th:errors="*{cnpj}">
+                Insira o CNPJ da loja.
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="nameStore" class="form-label">Nome da loja:</label>
+            <input th:field="*{nameStore}" type="text" class="form-control" th:errorclass="is-invalid"
+                placeholder="Insira aqui" maxlength="30" required>
+            <div class="invalid-feedback" th:errors="*{nameStore}">
+                Insira o nome da loja
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="adress" class="form-label">Endereço</label>
+            <input th:field="*{adress}" type="text" class="form-control" th:errorclass="is-invalid" id="adress"
+                placeholder="Rua dos Bobos, nº 0" required>
+            <div class="invalid-feedback">
+                Insira o endereço da loja
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="city" class="form-label">Cidade</label>
+                <input th:field="*{city}" type="text" class="form-control" th:errorclass="is-invalid" id="city"
+                    required>
+                <div class="invalid-feedback">
+                    Insira o a cidade da loja
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group col-md-1.5">
+            <label for="state" class="form-label">Estado</label>
+            <select name="state" id="state" class="form-control" th:errorclass="is-invalid" required>
+                <option selected>Selecione</option>
+                <option>AC</option>
+                <option>AL</option>
+                <option>AM</option>
+                <option>AP</option>
+                <option>AM</option>
+                <option>BA</option>
+                <option>CE</option>
+                <option>ES</option>
+                <option>GO</option>
+                <option>MA</option>
+                <option>MT</option>
+                <option>MS</option>
+                <option>MG</option>
+                <option>PA</option>
+                <option>PB</option>
+                <option>PR</option>
+                <option>PE</option>
+                <option>PI</option>
+                <option>RJ</option>
+                <option>RN</option>
+                <option>RS</option>
+                <option>RO</option>
+                <option>RR</option>
+                <option>SC</option>
+                <option>SP</option>
+                <option>SE</option>
+                <option>TO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="phone" class="form-label">Telefone:</label>
+            <input th:field="*{phone}" type="text" name="phone" class="form-control" th:errorclass="is-invalid"
+                id="phone" placeholder="(00)0000-0000" maxlength="12" required>
+            <div class="invalid-feedback">
+                Insira o telefone
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cep" class="form-label">CEP</label>
+            <input th:field="*{cep}" type="text" name="cep" class="form-control" th:errorclass="is-invalid" id="cep"
+                placeholder="XXXXX-XXX" maxlength="12" required>
+            <div class="invalid-feedback">
+                Insira o CEP
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="owner" class="form-label">Responsável:</label>
+            <input th:field="*{owner}" type="text" name="owner" class="form-control" th:errorclass="is-invalid"
+                id="owner" maxlength="20" required>
+            <div class="invalid-feedback">
+                Insira o nome do responsável da loja.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="celPhone" class="form-label">Celular</label>
+            <input th:field="*{celPhone}" type="phone" name="celPhone" class="form-control" th:errorclass="is-invalid"
+                id="celPhone" placeholder="(00)-00000-0000" maxlength="12" required>
+            <div class="invalid-feedback">
+                Insira o Celular
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label">E-mail:</label>
+            <input th:field="*{email}" type="email" name="email" class="form-control" th:errorclass="is-invalid"
+                id="email" maxlength="100" required>
+            <div class="invalid-feedback">
+                O e-mail deve possuir '@'
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="image" class="form-label">Imagem:</label>
+            <input th:field="*{image}" type="url" name="image" class="form-control" th:errorclass="is-invalid"
+                id="image" required>
+            <div class="invalid-feedback">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                <label class="form-check-label" for="gridCheck">
+                    Clique em mim
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Botoes formulario -->
+    <div th:fragment="botoes-formulario">
+        <div class="text-center">
+            <input type="button" class="btn btn-danger" value="Cancelar"></a>
+            <input type="submit" value="Salvar" id="botao" class="btn btn-success">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:fragment="footer">
+        <footer class="mt-auto">
+            <div class="bg-dark text-center text-white">
+                <span>Powered by C4NGAÇO SYSTEMS</span>
+            </div>
+        </footer>
+    </div>

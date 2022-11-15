@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "NotBlank.addLoja.cnpj",
+  "type": "java.lang.String",
+  "description": "A description for 'NotBlank.addLoja.cnpj'"
+}]}
