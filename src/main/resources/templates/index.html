@@ -1,4 +1,4 @@
-<html>
+<html class="h-100">
 
 <body class="bg-light h-100 d-flex flex-column">
 
@@ -32,39 +32,6 @@
     </section>
     <div th:replace="~{layouts :: footer}"></div>
 
-
-
-
-
-
-    <!-- <table class="table table-light">
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Cnpj</th>
-                <th scope="col">Loja</th>
-            </tr>
-            <tr th:each="store : ${stories}">
-                <th scope="row"></th>
-                <td><span th:text="${store.storeId}"></span></td>
-                <td><span th:text="${store.cnpj}"></span></td>
-                <td><span th:text="${store.nameStore}"></span></td>
-                <td><span th:text="${store.adress}"></span></td>
-                <td><span th:text="${store.city}"></span></td>
-                <td><span th:text="${store.state}"></span></td>
-                <td><span th:text="${store.phone}"></span></td>
-                <td><span th:text="${store.cep}"></span></td>
-                <td><span th:text="${store.owner}"></span></td>
-                <td><span th:text="${store.celPhone}"></span></td>
-                <td><span th:text="${store.email}"></span></td>
-                <td><span th:text="${store.image}"></span></td>
-
-                <td class="buttons "><a th:href="@{formulario/{storeId}(storeId=${store.storeId})}" th:method="get"
-                        class="btn btn-warning"><i class="fa fa-pencil"></i></a>
-                    <a th:href="@{delete/{storeId}(storeId=${store.storeId})}" th:method="delete" class="btn btn-danger"><i
-                            class="fa fa-trash"></i></a>
-                </td>
-            </tr>
-        </table> -->
 </body>
 
 </html>
