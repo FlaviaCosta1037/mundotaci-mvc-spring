@@ -14,7 +14,7 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2 g-4">
-            <div  th:each="store : ${stories}" class="container mb-3 mt-3 col-4">
+            <div th:each="store : ${stories}" class="container mb-3 mt-3 col-4">
                 <div class="card">
                     <img width="300px" height="300px" th:src="${store.image}" class="card-img-top" alt="">
                     <div class="card-body">
@@ -29,6 +29,7 @@
                 </div>
             </div>
         </div>
+
     </section>
     <div th:replace="~{layouts :: footer}"></div>
 
